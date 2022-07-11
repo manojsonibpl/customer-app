@@ -1,0 +1,33 @@
+<h4>Product Deatil</h4>
+<form style="width: 70%;padding-left: 15px;">
+    <div class="form-group row" style="padding: 5px;">
+      <label for="staticEmail" class="col-sm-2 col-form-label input-group-text" >id</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="id" value={{product.id}} appBackgrounddirective> 
+      </div>
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="name" class="col-sm-2 col-form-label input-group-text">name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" placeholder="name" value={{product.name}}>
+      </div>
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="type" class="col-sm-2 col-form-label input-group-text">type</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="type" placeholder="type" value={{product.type}}>
+      </div>
+    </div>
+    <div class="form-group row" style="padding: -100px;">
+      <label for="expirydate" class="col-sm-2 col-form-label input-group-text">expirydate</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="expirydate" placeholder="expirydate" value="{{product.expirydate | customdate}}">
+      </div>
+    </div>    
+    <div class="form-group row" style="padding: 5px;">
+      <label for="inputBack" class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <a routerLink="/product/productsearch" class="btn btn-sm btn-primary mr-1">Back</a>
+      </div>
+    </div>
+  </form>

@@ -1,0 +1,25 @@
+<h4>Product Search</h4>
+<table class="table table-striped">
+    <thead>
+        <tr class="table-success">
+            <th style="width: 8%">Id</th>
+            <th style="width: 15%">Name</th>
+            <th style="width: 15%">Type</th>
+            <th style="width: 15%">Price</th>
+            <th style="width: 25%">Date</th>
+            <th style="width: 22%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td appBackgrounddirective>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.type}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.expirydate | date:'shortDate'}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="/product/productdetail/{{product.id}}" class="btn btn-sm btn-primary mr-1">Detail</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

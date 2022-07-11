@@ -1,0 +1,160 @@
+<h4>Customer Detail</h4>
+<form style="width: 70%;padding-left: 15px;" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <div class="form-group row" style="padding: 5px;">
+    <label for="staticEmail" class="col-sm-2 col-form-label input-group-text">ID:</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" style="font-weight: bold;" id="id" name="id"
+        formControlName="id" appHighlightDirective>
+      <!-- <div *ngIf="submitted && id.errors" class="invalid-feedback">
+          <div *ngIf="id.errors.required">id is required</div>
+      </div> -->
+    </div>
+  </div>
+  <div class="form-group row" style="padding: 5px;">
+    <label for="firstname" class="col-sm-2 col-form-label input-group-text">FIRST NAME:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="firstname" id="firstname" name="firstname"
+        formControlName="firstname">
+      <div *ngIf="customerForm.controls.firstname.errors" class="error" style="color:red">
+        <div *ngIf="customerForm.controls.firstname.errors.required">firstname is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row" style="padding: 5px;">
+    <label for="lastname" class="col-sm-2 col-form-label input-group-text">LAST NAME:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="lastname" id="lastname" name="lastname"
+        formControlName="lastname">
+        <div *ngIf="customerForm.controls.lastname.errors" class="error" style="color:red">
+          <div *ngIf="customerForm.controls.lastname.errors.required">lastname is required</div>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row" style="padding: 5px;">
+    <label for="lastname" class="col-sm-2 col-form-label input-group-text">EMAIL:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="email" id="email" name="email" formControlName="email">
+      <div *ngIf="customerForm.controls.email.errors" class="error" style="color:red">
+        <div *ngIf="customerForm.controls.email.errors.required">email is required</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group row" style="padding: 5px;">
+    <label for="lastname" class="col-sm-2 col-form-label input-group-text">PASSWORD:</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" placeholder="password" id="password" name="password"
+        formControlName="password">
+        <div *ngIf="customerForm.controls.password.errors" class="error" style="color:red">
+          <div *ngIf="customerForm.controls.password.errors.required">password is required</div>
+        </div>
+    </div>
+  </div>
+  <div class="form-group row" style="padding: 5px;">
+    <label for="lastname" class="col-sm-2 col-form-label input-group-text">CONFIRM-PASS:</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" placeholder="confirmpassword" id="confirmpassword"
+        name="confirmpassword" formControlName="confirmpassword">
+        <div *ngIf="customerForm.controls.confirmpassword.errors" class="error" style="color:red">
+          <div *ngIf="customerForm.controls.confirmpassword.errors.required">confirm password is required</div>
+        </div>
+    </div>
+    
+  </div>
+  <div formGroupName="address">
+    <div class="form-group row" style="padding: 5px;">
+      <label for="address" class="col-sm-2 col-form-label input-group-text">HOUSE-NO</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="houserno" id="houseno" name="houseno"
+          formControlName="houseno">
+          <!-- <div *ngIf="controls.address.controls.houseno.errors" class="error" style="color:red">
+            <div *ngIf="customerForm.controls.address.controls.houseno.errors.required">houseno is required</div>
+          </div> -->
+      </div>
+     
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="address" class="col-sm-2 col-form-label input-group-text">STREET</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="street" id="street" name="street" formControlName="street">
+      </div>
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="city" class="col-sm-2 col-form-label input-group-text">CITY</label>
+      <div class="col-sm-10">
+        <!-- <input type="text" class="form-control" id="city" placeholder="city" value={{customer.city}}> -->
+        <select class="form-control" id="city" name="city" formControlName="city">
+          <option selected>Choose...</option>
+          <option value="Jabalpur">Jabalpur</option>
+          <option value="Bhopal">Bhopal</option>
+          <option value="Indore">Indore</option>
+          <option value="Noida">Noida</option>
+          <!-- <option [ngValue]="c.code" *ngFor="let c of countryList">
+          {{c.name}}
+        </option> -->
+      </select>
+        <!-- <div *ngIf="customerForm.controls.city.errors" class="error" style="color:red">
+          <div *ngIf="customerForm.controls.city.errors.required">city is required</div>
+        </div> -->
+        
+      </div>
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="state" class="col-sm-2 col-form-label input-group-text">STATE</label>
+      <div class="col-sm-10">
+        <!-- <input type="text" class="form-control" id="state" placeholder="state" value={{customer.state}}> -->
+        <select class="form-control" id="state" name="state" formControlName="state">
+          <option selected>Choose...</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Other">Other</option>
+          <!-- <option [ngValue]="c.code" *ngFor="let c of stateList">
+          {{c.name}}
+        </option> -->
+
+        </select>
+        <!-- <div *ngIf="customerForm.controls.state.errors" class="error" style="color:red">
+          <div *ngIf="customerForm.controls.state.errors.required">state is required</div>
+        </div> -->
+      </div>
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="state" class="col-sm-2 col-form-label input-group-text">COUNTRY</label>
+      <div class="col-sm-10">
+        <!-- <input type="text" class="form-control" id="state" placeholder="country" value={{customer.country}}> -->
+        <select class="form-control" id="country" name="country" formControlName="country">
+          <option selected>Choose...</option>
+          <option value="India">India</option>
+          <option value="Other">Other</option>
+          <!-- <option [ngValue]="c.code" *ngFor="let c of countryList">
+          {{c.name}}
+        </option> -->
+
+        </select>
+        <!-- <div *ngIf="customerForm.controls.country.errors" class="error" style="color:red">
+          <div *ngIf="customerForm.controls.country.errors.required">country is required</div>
+        </div> -->
+      </div>
+    </div>
+    <div class="form-group row" style="padding: 5px;">
+      <label for="pincode" class="col-sm-2 col-form-label input-group-text">PIN-CODE</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="pincode" id="pincode" name="pincode"
+          formControlName="pincode">
+          <!-- <div *ngIf="customerForm.controls.pincode.errors" class="error" style="color:red">
+            <div *ngIf="customerForm.controls.pincode.errors.required">pincode is required</div>
+          </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="form-group row" style="padding: 5px;">
+    <label for="inputBack" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-10">
+      <div class="form-group row">
+        <div class="col-sm-4"><a routerLink="/customer/customersearch" class="btn btn-primary">Back to List</a></div>
+        <div class="col-sm-2"><button type="submit" class="btn btn-primary">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

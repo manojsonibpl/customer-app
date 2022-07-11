@@ -1,0 +1,31 @@
+<h4 >Customer Search</h4>
+<table class="table table-striped">
+    <thead>
+        <tr  class="table-success">
+            <th style="width: 8%">ID</th>
+            <th style="width: 12%">FIRST-NAME</th>
+            <th style="width: 12%">LAST-NAME</th>
+            <th style="width: 8%">EMAIL</th>
+            <th style="width: 12%">STREET ADDRESS</th>
+            <th style="width: 12%">CITY</th>
+            <th style="width: 8%">STATE</th>
+            <th style="width: 8%">PIN-CODE</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td appHighlightDirective>{{customer.id}}</td>
+            <td>{{customer.firstname}}</td>
+            <td>{{customer.lastname}}</td>
+            <td >{{customer.email}}</td>
+            <td>{{customer.address.houseno}} {{customer.address.street}}</td>
+            <td>{{customer.address.city}}</td>
+            <td>{{customer.address.state}}</td>
+            <td>{{customer.address.pincode}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="/customer/customerdetail/{{customer.id}}" class="btn btn-primary">Detail</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
